@@ -24,11 +24,42 @@ Um processo -20 tem maior prioridade, por isso é menos legal. Já o +20 é bem 
 
 O comando nice nos permite especificar a prioridade de CPU e Memória com a qual um processo será iniciado. Ou seja, o processo iniciará com a prioridade que especificarmos e manterá essa prioridade até que seja finalizado.
 
-O comando para isso seria:
+O comando nice tem a seguinte estrutura:
 
-Podemos recuperar o cabeçalho deste arquivo fazendo:
+    $ nice prioridade comando
 
-    $ head -n 3 Tux.ppm
-    P6
-    265 314
-    255
+Desta forma, temos o seguinte exemplo:
+
+    $ nice -10 rm -f /tmp/*
+
+No exemplo acima, o comando rm -f será executado com prioridade “-10“. O limite é -20.
+
+### Comando renice
+
+O comando renice é similar ao nice. A diferença entre eles é que o renice é utilizado em processos que já estão em execução.
+
+A syntax dele é esta:
+
+    $ renice -10 -p PID
+
+Desta forma, temos o seguinte exemplo:
+
+    $ renice -10 -p 25876
+
+Desta forma, o processo cujo PID é 25876 passará para prioridade “-10“. Observe que é preciso ter o número do PID para trocarmos a prioridade do processo.
+
+Caso queiramos trocar a prioridade dos processos de um determinado usuário, podemos utilizar o parâmetro “-u” e especificarmos esse usuário. Exemplo:
+
+    $ renice -10 -u usuario
+
+Com isso, todos processos desse usuário passarão para prioridade “-10“.
+
+## Conclusão
+
+Como dito anteriormente, o Linux gerencia a prioridade de processos da forma como ele, Linux, considera ser melhor para o sistema. Acontece que, as vezes, o melhor para o sistema não é melhor para nós, então a troca da prioridade de um processo se faz necessária. Com esses 3 comandos, como vimos anteriormente, podará gerenciar prioridades como bem entender. Só tome cuidado para não gerar sobrecargas desnecessárias.
+
+## Referências
+
+LinuxZilla, 2023. Disponível em: https://www.linuxzilla.com.br/2022/04/17/linux-gerenciando-prioridades-de-processos/
+
+
