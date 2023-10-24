@@ -34,7 +34,7 @@ Desta forma, temos o seguinte exemplo:
 
 No exemplo acima, o comando firefox será executado com prioridade “12“. Ao consultar novamente os processo disponíveis com o comando `ps -efdl', temos:
 
-
+![Imagem1](/Imagem1.png)
 
 ### Comando renice
 
