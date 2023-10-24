@@ -26,13 +26,15 @@ O comando nice nos permite especificar a prioridade de CPU e Memória com a qual
 
 O comando nice tem a seguinte estrutura:
 
-    $ nice prioridade comando
+    $ nice -n prioridade comando
 
 Desta forma, temos o seguinte exemplo:
 
-    $ nice -10 rm -f /tmp/*
+    $ nice -n 12 firefox
 
-No exemplo acima, o comando rm -f será executado com prioridade “-10“. O limite é -20.
+No exemplo acima, o comando firefox será executado com prioridade “12“. Ao consultar novamente os processo disponíveis com o comando `ps -efdl', temos:
+
+
 
 ### Comando renice
 
