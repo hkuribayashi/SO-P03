@@ -36,6 +36,8 @@ No exemplo acima, o comando firefox será executado com prioridade “12“. Ao 
 
 ![Imagem1](/Imagem1.png)
 
+Porém temos uma perguntar em aberto. Qual o nice padrão de um usuário ao abrir o Firefox?
+
 ### Comando renice
 
 O comando renice é similar ao nice. A diferença entre eles é que o renice é utilizado em processos que já estão em execução.
